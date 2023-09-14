@@ -1,12 +1,19 @@
-/* eslint-disable react/jsx-key */
+/* eslint-disable no-unused-vars */
+
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
+
 
 import { useEffect, useState } from 'react';
 import './Home.css'
 import {FaDollarSign, FaBookOpen} from 'react-icons/fa';
+import Cart from '../Cart/Cart';
 
 
 const Home = () => {
     const [allcourse, setAllCourse] = useState([])
+    const [selectedCourse, setSelectedCourse] =useState([])
 
 
     useEffect(()=>{
@@ -14,7 +21,20 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setAllCourse(data))
     },[])
-    console.log(allcourse)
+    const handleSelectCourse = (course) =>{
+        const isExist = selectedCourse.find(item => item.id == course.id);
+        if(isExist){
+            toast('Already selected')
+        }else{
+            setSelectedCourse([...selectedCourse, course]);
+
+        }
+
+
+        
+
+    };
+    console.log(selectedCourse);
 
 
 
@@ -38,7 +58,8 @@ const Home = () => {
                     <p className='icon'><FaBookOpen></FaBookOpen></p>
                     <p className='credit'>Credit : {course.Credit}hr</p>
                 </div>
-                <button className='card-butn'>Select</button>
+                <button onClick={()=>handleSelectCourse(course)} className='card-butn'>Select</button>
+                <ToastContainer />
 
                 </div>
                 ))
@@ -47,7 +68,8 @@ const Home = () => {
 
             </div>
                 <div className='cart'>
-                    <h1>This is cart</h1>
+                    
+                    <Cart selectedCourse={selectedCourse}></Cart>
 
                 </div>
 
