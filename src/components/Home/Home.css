@@ -34,3 +34,18 @@ padding: 16px;
     border-radius: 8px;
     background-color: steelblue;
 }
+.home-container{
+    display: flex;
+}
+.card-container{
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.cart{
+    width: 312px;
+    height: 355px;
+    border-color: white;
+    border: 2px solid gray;
+}
