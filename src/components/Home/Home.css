@@ -1,0 +1,36 @@
+.card{
+width: 310px;
+height: 400px;
+border: 1px solid gray;
+background-color: gainsboro;
+padding: 16px;
+}
+.card-photo{
+    width: 280px;
+    height: 144px;
+}
+.card-name{
+    color: black;
+}
+.card-details{
+    color: black;
+}
+.icon-set{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.card-price{
+    color: black;
+}
+.icon{
+    color: black;
+}
+.credit{
+    color: black;
+}
+.card-butn{
+    width: 280px;
+    border-radius: 8px;
+    background-color: steelblue;
+}
