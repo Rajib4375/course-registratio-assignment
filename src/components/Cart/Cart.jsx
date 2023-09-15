@@ -2,12 +2,15 @@
 /* eslint-disable react/prop-types */
 import './Cart.css'
 
-const Cart = ({selectedCourse}) => {
+const Cart = ({selectedCourse, remaining, totalCredit}) => {
     
 
     return (
-        <div>
-            <h4>Course Name</h4>
+        <div className='cart-contant'>
+            <h4 className='remaining'>Credit Hour Remaining : {remaining}</h4>
+            <hr />
+
+            <h2>Course Name</h2>
             <ol>
             {
                 selectedCourse.map(course =>(
@@ -15,6 +18,8 @@ const Cart = ({selectedCourse}) => {
                 ))
             }
             </ol>
+            <hr />
+            <h4>Total Credit Hour : {totalCredit}</h4>
             
         </div>
     );

@@ -12,8 +12,10 @@ import Cart from '../Cart/Cart';
 
 
 const Home = () => {
-    const [allcourse, setAllCourse] = useState([])
-    const [selectedCourse, setSelectedCourse] =useState([])
+    const [allcourse, setAllCourse] = useState([]);
+    const [selectedCourse, setSelectedCourse] =useState([]);
+    const [remaining, setRemaining] =useState(0);
+    const [totalCredit, setTotalCredit] = useState(0);
 
 
     useEffect(()=>{
@@ -23,9 +25,19 @@ const Home = () => {
     },[])
     const handleSelectCourse = (course) =>{
         const isExist = selectedCourse.find(item => item.id == course.id);
+     
+         let count= course.Credit;
         if(isExist){
-            toast('Already selected')
+          return  toast('Already selected')
         }else{
+            selectedCourse.forEach(item =>{
+                count = count + item.Credit;
+            })
+            const totalRemaining = 20 - count;
+            setTotalCredit(count);
+            setRemaining(totalRemaining);
+
+
             setSelectedCourse([...selectedCourse, course]);
 
         }
@@ -69,7 +81,7 @@ const Home = () => {
             </div>
                 <div className='cart'>
                     
-                    <Cart selectedCourse={selectedCourse}></Cart>
+                    <Cart selectedCourse={selectedCourse} remaining ={remaining} totalCredit={totalCredit}></Cart>
 
                 </div>
 
