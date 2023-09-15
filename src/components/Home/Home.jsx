@@ -34,11 +34,15 @@ const Home = () => {
                 count = count + item.Credit;
             })
             const totalRemaining = 20 - count;
-            setTotalCredit(count);
+            if(count > 20){
+                
+            }else{
+                setTotalCredit(count);
             setRemaining(totalRemaining);
-
-
             setSelectedCourse([...selectedCourse, course]);
+
+            }
+            
 
         }
 
