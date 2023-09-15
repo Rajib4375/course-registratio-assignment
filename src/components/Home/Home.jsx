@@ -35,7 +35,7 @@ const Home = () => {
             })
             const totalRemaining = 20 - count;
             if(count > 20){
-                
+                return toast('Your limit already finished!!!') 
             }else{
                 setTotalCredit(count);
             setRemaining(totalRemaining);
